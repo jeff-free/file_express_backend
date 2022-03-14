@@ -117,6 +117,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (7.0.2.3)
@@ -148,6 +150,9 @@ GEM
     rake (13.0.6)
     reline (0.3.1)
       io-console (~> 0.5)
+    shoulda-context (2.0.0)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     strscan (3.0.1)
     thor (1.2.1)
     timeout (0.2.0)
@@ -166,7 +171,10 @@ DEPENDENCIES
   debug
   pg (~> 1.1)
   puma (~> 5.0)
+  rack-cors (= 1.1.1)
   rails (~> 7.0.2, >= 7.0.2.3)
+  shoulda-context (~> 2.0.0)
+  shoulda-matchers (~> 5.1.0)
   tzinfo-data
 
 RUBY VERSION
