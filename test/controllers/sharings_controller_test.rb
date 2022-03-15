@@ -38,4 +38,28 @@ class SharingsControllerTest < ActionDispatch::IntegrationTest
       end
     end
   end
+
+  describe 'GET /sharing/:token' do
+    context 'record cannot be found with given param' do
+      it 'responds error message in json format with status code 404' do
+        get '/sharings/unexist_token'
+        expect(response.status).must_equal(404)
+        expect(response.body).must_equal({
+          status: 404,
+          message: '404 Record Not Found',
+          data: nil
+        }.to_json)
+      end
+    end
+
+    context 'record can be found with given param' do
+      it 'responds data in json format with status code 200' do
+        sharing = create(:sharing)
+        get "/sharings/#{sharing.token}"
+        expect(response.status).must_equal(200)
+        expect(response.body)
+          .must_equal(SharingSerializer.new(sharing).serialized_data)
+      end
+    end
+  end
 end
