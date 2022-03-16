@@ -16,7 +16,8 @@ gem 'puma', '~> 5.0'
 # gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+gem 'redis', '~> 4.6'
+gem 'sidekiq', '~> 6.0.7'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -50,4 +51,5 @@ group :test do
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'shoulda-context', '~> 2.0.0'
   gem 'shoulda-matchers', '~> 5.1.0'
+  gem 'spy', '1.0.2'
 end
