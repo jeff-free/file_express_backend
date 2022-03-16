@@ -3,6 +3,8 @@ require_relative '../config/environment'
 require 'rails/test_help'
 require 'minitest/spec'
 require 'minitest/mock'
+require 'sidekiq/testing'
+require 'spy/integration'
 
 class ActiveSupport::TestCase
   extend Minitest::Spec::DSL

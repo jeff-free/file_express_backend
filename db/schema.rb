@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_13_133326) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_15_115551) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_13_133326) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "bg_jobs", force: :cascade do |t|
+    t.integer "job_runnable_id"
+    t.string "job_runnable_type"
+    t.integer "worker_job_id"
+    t.string "job_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_runnable_id"], name: "index_bg_jobs_on_job_runnable_id"
+    t.index ["job_runnable_type"], name: "index_bg_jobs_on_job_runnable_type"
+    t.index ["job_type"], name: "index_bg_jobs_on_job_type"
+    t.index ["worker_job_id"], name: "index_bg_jobs_on_worker_job_id"
   end
 
   create_table "sharings", force: :cascade do |t|
